@@ -1,24 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+import Footer from "./components/Footer";
+import NavBar from "./components/NavBar";
+import AboutPage from "./pages/AboutPage";
+import HomePage from "./pages/HomePage";
+import ProductPage from "./pages/ProductPage";
+import DetailPage from "./pages/DetailPage";
+import HospitalPage from "./pages/hospital/HospitalPage";
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <Router>
+        <NavBar />
+        <Switch>
+          <Route exact path="/">
+            <HomePage />
+          </Route>
+          <Route path="/about">
+            <AboutPage />
+          </Route>
+          <Route path="/product">
+            <ProductPage />
+          </Route>
+          <Route path="/detail/:id/title/:title">
+            <DetailPage />
+          </Route>
+          <Route path="/hospital">
+            <HospitalPage />
+          </Route>
+        </Switch>
+        <Footer />
+      </Router>
+    </QueryClientProvider>
   );
 }
 
