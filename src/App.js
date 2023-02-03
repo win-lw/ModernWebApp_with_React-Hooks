@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from "react";
 
 import { ToastProvider } from 'react-toast-notifications';
@@ -44,10 +43,6 @@ import ChartReport from "./pages/report/ChartReport";
 const { store } = configureStore(); // ของ redux persist
 
 const queryClient = new QueryClient();
-=======
-import logo from './logo.svg';
-import './App.css';
->>>>>>> parent of 17091df (ed1)
 
 
 function App() {
