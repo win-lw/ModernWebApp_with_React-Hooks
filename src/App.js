@@ -123,8 +123,7 @@ function App() {
     </ToastProvider>
     </UserStoreProvider>
 
-    </Provider>
-=======
+    </Provider> 
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
