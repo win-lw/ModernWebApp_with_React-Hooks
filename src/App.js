@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 
 import { ToastProvider } from 'react-toast-notifications';
@@ -43,10 +44,15 @@ import ChartReport from "./pages/report/ChartReport";
 const { store } = configureStore(); // ของ redux persist
 
 const queryClient = new QueryClient();
+=======
+import logo from './logo.svg';
+import './App.css';
+>>>>>>> parent of 17091df (ed1)
 
 
 function App() {
   return (
+<<<<<<< HEAD
     <Provider store={store}>
     <UserStoreProvider>
     <ToastProvider placement="top-center" autoDismiss autoDismissTimeout={3000}>
@@ -118,6 +124,24 @@ function App() {
     </UserStoreProvider>
 
     </Provider>
+=======
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+>>>>>>> parent of 17091df (ed1)
   );
 }
 
