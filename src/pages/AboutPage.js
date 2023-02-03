@@ -25,7 +25,7 @@ const AboutPage = () => {
 
   return (
     <div className='container'>
-        <div className='rpw'>
+        <div className='row'>
             <div className='col-md-12'>
             <h2>เกี่ยวกับเรา</h2>
             <p>

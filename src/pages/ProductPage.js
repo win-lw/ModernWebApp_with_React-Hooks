@@ -3,13 +3,23 @@ import {Table, Image, Badge, Spinner} from "react-bootstrap"
 import axios from 'axios'
 import { format, } from 'date-fns'
 import { th } from 'date-fns/locale'
-import { BsEyeFill } from 'react-icons/bs'
+import { BsCartPlus, BsEyeFill } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
+
+//redux
+import { addToCart } from '../redux/actions/cartAction'
+import {useDispatch, useSelector} from 'react-redux'
 
 const ProductPage = () => {
     const [product, setProduct] = React.useState([])
     const [loading, setLoading] = React.useState(false)
     const [error, setError] = React.useState(null)
+
+    //redux
+    const dispatch = useDispatch();
+    const cart = useSelector(state => state.cartReducer.cart)
+    const total = useSelector(state => state.cartReducer.total)
+
 
     const getData = async () => {
         try {
@@ -50,6 +60,19 @@ const ProductPage = () => {
         )
     }
 
+    const addCart = (p) => {
+        //console.log(p)
+        const product = {
+            id: p.id,
+            name: p.title,
+            price: p.view, //สมมุติว่า p.view คือ price
+            qty: 1
+        }
+
+        //call action
+        dispatch(addToCart(product, cart))
+    }
+
 
 
 
@@ -59,6 +82,9 @@ const ProductPage = () => {
         <div className='row'>
             <div className='col-md-12'>
             <h2>สินค้า</h2>
+            {
+                total > 0 && <h4>สินค้าในตะกร้าจำนวน {total} ชิ้น</h4>
+            }
             <Table striped bordered hover>
       <thead>
         <tr>
@@ -96,6 +122,9 @@ const ProductPage = () => {
 
                             <BsEyeFill />
                         </Link>
+                        <button onClick={() => addCart(p)} className='btn btn-outline-success ml-2'>
+                            <BsCartPlus />
+                        </button>
                      </td>
                     </tr>
                 )

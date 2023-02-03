@@ -2,8 +2,7 @@ import React from "react";
 import { Spinner, Table } from "react-bootstrap";
 import Pagination from "react-js-pagination";
 import axios from "axios";
-import { BsEyeFill } from "react-icons/bs";
-import { Link } from "react-router-dom";
+
 
 const pageSize = 15;
 

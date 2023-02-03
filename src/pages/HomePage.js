@@ -2,7 +2,7 @@ import React from "react";
 
 import { Spinner } from "react-bootstrap";
 
-import { useQuery } from "@tanstack/react-query";
+import { useQuery } from "react-query";
 
 const HomePage = () => {
   // const { isLoading, error, data, isFetching } = useQuery(["getData"], () =>
@@ -10,8 +10,9 @@ const HomePage = () => {
   //     (res) => res.json()
   //   )
   // );
-  
+
   const query = useQuery("getData", () => {
+
     const controller = new AbortController()
     const signal = controller.signal
 
@@ -25,8 +26,11 @@ const HomePage = () => {
     //cancel request
     promise.cancel = () => controller.abort()
 
+
     return promise
   });
+
+
 
   const { isLoading, error, data, isFetching } = query
 
@@ -61,32 +65,25 @@ const HomePage = () => {
               something more unique.
             </p>
             <p>
-              <a className="btn btn-primary btn-lg" href="#" role="button">
+              <button className="btn btn-primary btn-lg" href="#">
                 Learn more »
-              </a>
+              </button>
             </p>
           </div>
         </div>
         <div className="container">
           {/* Example row of columns */}
           <div className="row">
-
             <div className="mx-auto">
-              {isFetching ? 'กำลังอัปเดต...' : null}
+              {isFetching ? "กำลังอัปเดต..." : null}
             </div>
-          
+
             {data.data.map((news, index) => {
               return (
                 <div className="col-md-4" key={news.id}>
-                  <h2>
-                    {news.topic}
-                  </h2>
-                  <p>
-                    {news.detail}
-                  </p>
-                  <p>
-                    วันที่: {news.dateadd}
-                  </p>
+                  <h2>{news.topic}</h2>
+                  <p>{news.detail}</p>
+                  <p>วันที่: {news.dateadd}</p>
                 </div>
               );
             })}
