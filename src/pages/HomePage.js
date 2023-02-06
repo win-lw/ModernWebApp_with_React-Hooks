@@ -1,10 +1,11 @@
 import React from "react";
 
 import { Spinner } from "react-bootstrap";
-
+import { useHistory } from "react-router-dom";
 import { useQuery } from "react-query";
 
 const HomePage = () => {
+  const history = useHistory();
   // const { isLoading, error, data, isFetching } = useQuery(["getData"], () =>
   //   fetch("https://api.codingthailand.com/api/news?page=1&per_page=3").then(
   //     (res) => res.json()
@@ -12,27 +13,24 @@ const HomePage = () => {
   // );
 
   const query = useQuery("getData", () => {
-
-    const controller = new AbortController()
-    const signal = controller.signal
+    const controller = new AbortController();
+    const signal = controller.signal;
 
     const promise = fetch(
-      "https://api.codingthailand.com/api/news?page=1&per_page=3",{
-        method: 'get',
-        signal: signal
+      "https://api.codingthailand.com/api/news?page=1&per_page=3",
+      {
+        method: "get",
+        signal: signal,
       }
-    ).then((res) => res.json())
+    ).then((res) => res.json());
 
     //cancel request
-    promise.cancel = () => controller.abort()
+    promise.cancel = () => controller.abort();
 
-
-    return promise
+    return promise;
   });
 
-
-
-  const { isLoading, error, data, isFetching } = query
+  const { isLoading, error, data, isFetching } = query;
 
   if (isLoading === true) {
     return (
@@ -57,16 +55,18 @@ const HomePage = () => {
         {/* Main jumbotron for a primary marketing message or call to action */}
         <div className="jumbotron">
           <div className="container">
-            <h1 className="display-3">Hello, world!</h1>
+            <h1 className="display-4">คอร์สเรียนออนไลน์</h1>
             <p>
-              This is a template for a simple marketing or informational
-              website. It includes a large callout called a jumbotron and three
-              supporting pieces of content. Use it as a starting point to create
-              something more unique.
+              เว็บไซต์สำหรับเรียนและพัฒนา ไม่ว่าจะเป็น Web และ Mobile App
+              เราอยู่ในยุคที่มีการเปลี่ยนแปลงรวดเร็วมากจนคาดไม่ถึง
+              ทัศนคติแห่งการเรียนรู้ที่ดีเท่านั้นที่จะทำให้เราก้าวทัน
+              และรับมือกับการเปลี่ยนแปลงต่างๆ ในอนาคตได้ โค้ชเอก...
             </p>
             <p>
-              <button className="btn btn-primary btn-lg" href="#">
-                Learn more »
+              <button onClick={() => {
+                  history.replace("/product");
+                }} className="btn btn-info btn-lg" href="#">
+                เข้าสู่คอร์สเรียน!
               </button>
             </p>
           </div>

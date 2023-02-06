@@ -76,7 +76,7 @@ const UploadPage = () => {
               )}
             </div>
 
-            <button className="btn btn-primary" type="submit">
+            <button className="btn btn-info" type="submit">
               Upload...
             </button>
           </form>

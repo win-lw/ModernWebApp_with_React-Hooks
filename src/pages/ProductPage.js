@@ -81,9 +81,9 @@ const ProductPage = () => {
     <div className='container'>
         <div className='row'>
             <div className='col-md-12'>
-            <h2>สินค้า</h2>
+            <h2>คอร์สเรียน</h2>
             {
-                total > 0 && <h4>สินค้าในตะกร้าจำนวน {total} ชิ้น</h4>
+                total > 0 && <h4>คอร์สในตะกร้าจำนวน {total} ชิ้น</h4>
             }
             <Table striped bordered hover>
       <thead>
@@ -122,7 +122,7 @@ const ProductPage = () => {
 
                             <BsEyeFill />
                         </Link>
-                        <button onClick={() => addCart(p)} className='btn btn-outline-success ml-2'>
+                        <button onClick={() => addCart(p)} className='btn btn-outline-info ml-2'>
                             <BsCartPlus />
                         </button>
                      </td>

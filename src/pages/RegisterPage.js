@@ -98,7 +98,7 @@ const RegisterPage = () => {
 
 
 
-            <Button variant="primary" type="submit">
+            <Button variant="info" type="submit">
               สมัครสมาชิก
             </Button>
           </Form>

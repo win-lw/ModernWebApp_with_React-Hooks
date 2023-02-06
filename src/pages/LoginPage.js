@@ -116,7 +116,7 @@ const LoginPage = () => {
 
 
 
-            <Button variant="primary" type="submit">
+            <Button variant="info" type="submit">
               Log in
             </Button>
           </Form>

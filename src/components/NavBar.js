@@ -80,7 +80,7 @@ const NavBar = () => {
             height="30"
             className="d-inline-block align-top"
           />{" "}
-          CodingThailand
+          Miniproject React
         </NavLink>
         {/* <Navbar.Brand href="#home">
             <img
@@ -181,7 +181,8 @@ const NavBar = () => {
           {
             profileRedux ? (
             <span className="navbar-text text-gray">
-            ยินดีต้อนรับคุณ {profileRedux.name} status: {profileRedux.role}
+             ยินดีต้อนรับคุณ {profileRedux.name}
+            {/* ยินดีต้อนรับคุณ {profileRedux.name} status: {profileRedux.role} */}
             <button className="btn btn-danger ml-2" onClick={logout}>
               Log out
             </button>
