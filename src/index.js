@@ -8,12 +8,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   //<React.StrictMode>
     <App />
-<<<<<<< HEAD
-    
   //</React.StrictMode>,
-=======
-  </React.StrictMode>
->>>>>>> parent of 17091df (ed1)
 );
 
 // If you want to start measuring performance in your app, pass a function
